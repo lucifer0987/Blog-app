@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".Activities.LoginActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/loginUserPhoto"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/userphoto"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"/>
+
+    <EditText
+        android:id="@+id/loginMail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:inputType="textPersonName"
+        android:hint="Email"
+        android:paddingStart="18dp"
+        android:background="@drawable/reg_edittext_style"
+        android:gravity="center_vertical"
+        android:layout_below="@id/loginUserPhoto"
+        android:layout_marginTop="110dp"/>
+
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:paddingStart="18dp"
+        android:background="@drawable/reg_edittext_style"
+        android:gravity="center_vertical"
+        android:layout_below="@id/loginMail"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:paddingStart="70dp"
+        android:paddingEnd="70dp"
+        android:textColor="#ffffff"
+        android:id="@+id/loginBtn"
+        android:background="@drawable/reg_btn_style"
+        android:text="Login"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/loginPassword"/>
+
+    <ProgressBar
+        android:id="@+id/prBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_alignBottom="@id/loginBtn"
+        android:layout_below="@id/loginPassword"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

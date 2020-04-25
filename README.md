@@ -1,2 +1,2 @@
-# Blog app
- 
+# Blogapp
+ an app for blogging
