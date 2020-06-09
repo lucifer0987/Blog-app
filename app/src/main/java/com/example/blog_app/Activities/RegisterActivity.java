@@ -60,6 +60,8 @@ public class RegisterActivity extends AppCompatActivity {
         regBtn = findViewById(R.id.regBtn);
         loadingProgress.setVisibility(View.INVISIBLE);
 
+        ImgUserPhoto = findViewById(R.id.regUserPhoto);
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -72,6 +74,10 @@ public class RegisterActivity extends AppCompatActivity {
                 final String password = userPassword.getText().toString();
                 final String password2 = userPassword2.getText().toString();
                 final String name = userName.getText().toString().trim();
+
+                if(pickedImgUri == null){
+                    Toast.makeText(RegisterActivity.this, "please select an image", Toast.LENGTH_SHORT).show();
+                }
 
                 if(email.isEmpty() || name.isEmpty() || password.isEmpty() || !password.equals(password2)){
                     // something goes wrong: all fileds myst be filled
@@ -89,7 +95,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-        ImgUserPhoto = findViewById(R.id.regUserPhoto);
         ImgUserPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,6 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("users_photos");
         final StorageReference imageFilePath = mStorage.child(pickedImgUri.getLastPathSegment());
+
         imageFilePath.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
